@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:party_mode/api/api.dart';
 import 'package:party_mode/view/pages/auth/contacts.dart';
 
 class LoginPage extends StatelessWidget {
@@ -45,10 +46,13 @@ class LoginFormState extends State<LoginForm> {
                 padding: const EdgeInsets.only(top: 40),
                 child: ElevatedButton(
                   onPressed: () async {
-                    await Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => ContactsPage()));
+                    var user = await login();
+                    print(user);
+                    // await Navigator.push(
+                    //     context,
+                    //     new MaterialPageRoute(
+                    //         builder: (context) => LoginPage()));
+                    // await Navigator.pop(context);
                   },
                   child: Text('Login'),
                 ),
