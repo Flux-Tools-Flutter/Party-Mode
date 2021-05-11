@@ -5,10 +5,14 @@ void main() {
   runApp(PartyModeApp());
 }
 
+final ThemeData _themeData = ThemeData(
+  primarySwatch: Colors.amber,
+  accentColor: Colors.amberAccent,
+);
+
 class PartyModeApp extends StatefulWidget {
   @override
   _PartyModeAppState createState() => _PartyModeAppState();
-
 }
 
 class _PartyModeAppState extends State<PartyModeApp> {
@@ -25,29 +29,7 @@ class _PartyModeAppState extends State<PartyModeApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Party Mode App',
-      theme: ThemeData(
-        primarySwatch: Colors.pink,
-        brightness: Brightness.dark, // Text is white when brightness is dark
-        
-        // accentColor: Color(0xFFff4081),
-
-        // elevatedButtonTheme: ElevatedButtonThemeData(
-        //   style: ButtonStyle()
-        // ),
-
-        // scaffoldBackgroundColor: Color(0xFF9c27b0),
-
-        // primaryColorDark: Color(0xFF7b1fa2),
-        // primaryColorLight: Color(0xFFe1bee7),
-        // primaryColor: Color(0xFF9c27b0),
-        // accentColor: Color(0xFFff4081),
-
-        // primaryColorBrightness
-        // accentColorBrightness
-        // Brightness.light | Brightness.dark
-
-        scaffoldBackgroundColor: Color(0xFF9c27b0),
-      ),
+      theme: _themeData,
       home: LandingPage(),
     );
   }
