@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:party_mode/view/widgets/login.dart';
 import 'package:video_player/video_player.dart';
-import 'package:party_mode/util.dart';
+import 'package:party_mode/api/api.dart';
+import 'package:party_mode/view/pages/auth/contacts.dart';
+import 'package:party_mode/models/user.dart';
+// NOTE: hack https://github.com/dart-lang/sdk/issues/38894
+import 'package:provider/provider.dart';
 
 class LandingPage extends StatelessWidget {
   @override
@@ -12,39 +16,34 @@ class LandingPage extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         BackgroundVideo(),
-        // Padding(padding: EdgeInsets.only(top: 200), child: LoginForm())
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(padding: EdgeInsets.only(top: 200), child: LoginForm()),
-            // LoginForm(),
+            Padding(
+                padding: EdgeInsets.only(top: 200),
+                child: LoginForm(onLoginPressed: () => onLoginPressed(context))),
           ],
         )
-        // LoginForm(),
       ],
     )));
   }
-}
 
-// Column(children: [
-//         Text('Party Mode', style: TextStyle(fontSize: 50, color: Colors.white)),
-//         Padding(
-//           padding: const EdgeInsets.only(top: 200.0),
-//           child: ElevatedButton(
-//             onPressed: () async {
-//               await Navigator.push(context,
-//                   new MaterialPageRoute(builder: (context) => LoginPage()));
-//             },
-//             child: Padding(
-//                 padding: EdgeInsets.all(20),
-//                 child: Text('Login',
-//                     style: TextStyle(fontSize: 40, color: Color(0xFFFFFFFF)))),
-//           ),
-//         ),
-//       ], mainAxisAlignment: MainAxisAlignment.center),
-//       alignment: Alignment.center,
-//       color: Color(0xFF9c27b0),
-//     )
+  onLoginPressed(BuildContext context) {
+    // TODO: https://pub.dev/documentation/provider/latest/provider/ReadContext/read.html
+    // Implement best practices
+    // context.select<UserModel>();
+
+    () async {
+      final user = await login();
+      print('[landing page] user $user');
+      final userModel = context.read<UserModel>();
+      userModel.setUsername(user['username']);
+      await Navigator.push(
+          context, new MaterialPageRoute(builder: (context) => ContactsPage()));
+    }()
+        .then((x) {});
+  }
+}
 
 class BackgroundVideo extends StatefulWidget {
   @override

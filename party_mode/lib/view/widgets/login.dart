@@ -1,6 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' ;
 
 class LoginForm extends StatefulWidget {
+  final Function onLoginPressed;
+  
+  // TODO: Make function required
+  LoginForm({ this.onLoginPressed }): super(); // QUESTION: Do I need to call super here?
+
   @override
   LoginFormState createState() {
     return LoginFormState();
@@ -9,10 +14,6 @@ class LoginForm extends StatefulWidget {
 
 class LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
-
-  LoginFormState({
-    required this onLoginPressed,
-  }): super();
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +60,8 @@ class LoginFormState extends State<LoginForm> {
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       child: ElevatedButton(
-                        onPressed: 
+                        onPressed: widget.onLoginPressed,
+                        // onPressed: () {},
                         child: Text('Login'),
                       ),
                     ))
