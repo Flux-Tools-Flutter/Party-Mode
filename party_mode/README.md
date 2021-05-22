@@ -1,16 +1,44 @@
-# party_mode
+# Party Mode - Flutter State Management Demo
 
-An App to alert your Friends when you are Partying
+Finds out who of your friends is partying right now!
 
-## Getting Started
+## Detecting Party
 
-This project is a starting point for a Flutter application.
+The user can click the "Party Mode" button at any time to let his friends know that he is partying
 
-A few resources to get you started if this is your first Flutter project:
+The App analyses user location and sensors data to calculate a probability of the user being partying and show a notification asking the user if its time to party
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+App detects and store places where the user is normally nor partying or partying
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+User can click send "party vibes" with the Party Vibes button to refresh its party state and alert friends that he is still on "party mode"
+
+App tries to predict user behaviour based on all user data
+
+Data sources
+
+- Party Mode Button
+- Party Vibes Button (Dance, Beer, Smoke, eggplant, beach, etc)
+
+## Partying Friends
+
+App shows a list of friends who are partying right now in an order based on the last time seen partying, last party vibe sent and distance from your current location
+
+User can click on a friend to send a Party Vibe to that user
+
+## Acceptance Features
+
+- [ ] V1 - MVP
+- [ ] User is able to login/register
+- [ ] User is able to set/unset himself of Party Mode
+- [ ] User is able to see his Partying Friends
+- [ ] User is able to change his nickname and logout in Settings
+- [ ] User is able to see time of party activation and distance of his partying friends
+
+- [ ] V2 - Party Vibes
+- [ ] User is able to send Party Vibes to all of his friends
+- [ ] User is able to send Party Vibes to individual friends
+- [ ] User is able to recive Party Vibes
+
+- [ ] V3 - Party Behaviour
+- [ ] App is able to track user location
+- [ ] App is able to suggest start Party Mode action

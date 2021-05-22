@@ -19,7 +19,7 @@ class LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return Container(
       decoration: new BoxDecoration(
-        color: Colors.white.withAlpha(200),
+        color: Colors.white.withAlpha(150),
         borderRadius: new BorderRadius.only(
           topLeft: const Radius.circular(10.0),
           topRight: const Radius.circular(10.0),

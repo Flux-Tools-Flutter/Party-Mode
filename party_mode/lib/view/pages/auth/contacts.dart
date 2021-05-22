@@ -14,7 +14,7 @@ class ContactsPage extends StatelessWidget {
               if(status.isGranted) {
               print(status);
               await Navigator.push(context,
-                  new MaterialPageRoute(builder: (context) => PageViewPage()));
+                  new MaterialPageRoute(builder: (context) => PageViewer()));
               }
               // TODO: Happy pathing
               print('TODO: PERMISSION IS NOT GRANDED');

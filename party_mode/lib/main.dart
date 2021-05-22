@@ -21,15 +21,6 @@ class PartyModeApp extends StatefulWidget {
 }
 
 class _PartyModeAppState extends State<PartyModeApp> {
-  var user;
-
-  void setUser(user) {
-    // How does this differs from react?
-    setState(() {
-      user = {};
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
