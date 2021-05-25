@@ -19,10 +19,10 @@ class _FriendCard extends StatelessWidget {
   _FriendCard({this.friend})
       : super(); // QUESTION: Do I need to call super here?
 
-
   @override
   Widget build(BuildContext context) {
-  final dateDiff = DateTime.now().difference(DateTime.parse(friend['last_time_seen_partying']));
+    final dateDiff = DateTime.now()
+        .difference(DateTime.parse(friend['last_time_seen_partying']));
 
     return Card(
         child: ListTile(
@@ -32,9 +32,9 @@ class _FriendCard extends StatelessWidget {
         backgroundColor: Colors.blue,
         child: Text(friend['username'].substring(0, 2)),
       ),
-      trailing: Text(dateDiff.inMinutes.toString() + ' mins ago', style: TextStyle(color: Colors.white)),
-    )
-        );
+      trailing: Text(dateDiff.inMinutes.toString() + ' mins ago',
+          style: TextStyle(color: Colors.white)),
+    ));
   }
 }
 
@@ -64,19 +64,24 @@ class _FriendsPageState extends State<FriendsPage> {
     var friendsWidgetsArr = <Widget>[];
     if (partyingFriends != null) {
       print('[_FriendsPageState] rendering partying friends');
-      partyingFriends.forEach((friend) {
-        friendsWidgetsArr.add(_FriendCard(friend: friend));
-      });
+
+      friendsWidgetsArr =
+          partyingFriends.map((friend) => _FriendCard(friend: friend)).toList();
     }
 
     return Scaffold(
         backgroundColor: Colors.black,
         body: Container(
           height: double.infinity,
-          child: ListView(
-            // padding: const EdgeInsets.all(8),
-            children: friendsWidgetsArr,
-          ),
+          child: this.isListLoading
+              ? Container(
+                  alignment: Alignment.center,
+                  child: Text('Looking for Friends',
+                      style: TextStyle(color: Colors.white, fontSize: 30)),
+                )
+              : ListView(
+                  children: friendsWidgetsArr,
+                ),
         ));
   }
 }
