@@ -1,0 +1,22 @@
+version: "3.3"
+
+services:
+
+  api: # name of the service
+    image: party-mode-api-image # Name the build image with this name
+    container_name: party-mode-api-container # the container will be accesible in the network by the same host name
+    build:
+      context: ./api # specify the directory of the Dockerfile
+      dockerfile: Dockerfile.prod # the name of the Dockerfile
+    volumes:
+      # - type: bind
+      #   source: /root/app # Hosts source of mount
+      #   target: /usr/app/src # the path in the container where the volume will be mounted
+      - ./api:/usr/app/src
+      - /usr/app/src/node_modules # This will hide the node_modules of the host and give us a place to have the machine's node_modules
+    ports:
+      - "3000:3000" # specify port forewarding
+    env_file:
+      - ./api/env/.prod.env
+    stdin_open: true # Keep STDIN open even if not attached
+    tty: true # Allocate a pseudo-tty
