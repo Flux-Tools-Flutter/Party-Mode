@@ -11,3 +11,44 @@ This app allows you to set your state as "partying" or "chilling" and inform to 
 ## Docs
 
 [Docs](./docs/README.md)
+
+
+## MVP
+
+The minimun amount of work to make something usable, very resource and data intensive
+
+- [ ] Flutter App using provider
+    - [ ] Register/Login using phone number and nickname
+    - [ ] Request contacts access
+    - [ ] First time contacts upload
+    - [ ] First time GET friend statuses
+    - [ ] Pulling of friends statuses every x seconds
+    - [ ] Party Mode status setting
+    - [ ] Logout
+    - [ ] Update nickname
+- [ ] Server
+    - [ ] Docker Server and deployment scripts
+    - [ ] User Service -  Register/Login
+    - [ ] User Service -  Party status update
+    - [ ] User Service - Logout
+    - [ ] Contacts Service -  PUT contacts
+    - [ ] Contacts Service -  GET all friend statuses (heavy op)
+    - [ ] Contacts Service - UPDATE contacts
+- [ ] MongoDB
+- [ ] Redis
+- [ ] PostgreSQL
+
+Yeah I know I'm mixing features and implementation details here ¯\_(ツ)_/¯
+
+## Beta
+
+- [ ] Contact changes are updated by pushing differences on the contact list instead of the full list
+- [ ] Contact statuses updated are pushed to the app one by one on the background instead of reloading the full statuses list
+- [ ] A bit of UX and Design
+- [ ] Get user location and calculate distance from friends
+
+## V1 (Hopefully this can be a community managed app some day)
+
+- [ ] Send party vibes to one, many or all friends
+- [ ] Set your party vibe
+- [ ] Bitcoin donations

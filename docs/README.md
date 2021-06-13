@@ -49,9 +49,12 @@ Options for SMS verification in the future:
 
 The verification & authentication service is going to live in its own repository, I've re-written the same thing so many times that if I have to do it again I'm gonna change my career to chef make cakes of computers and murder them horribly with a knife, the server its going to use the repository as a library and instanciate the auth system in the node.js user service, in the future it could live on its own service
 
-Is there any open source auth lib/service we could use? 
-https://supabase.io/docs/guides/auth ? 
-https://github.com/nhost/nhost ?
+Is there any open source auth lib/service we could use?
+
+https://supabase.io/docs/guides/auth \
+https://github.com/nhost/nhost \
+https://parseplatform.org/ \
+https://kuzzle.io/
 
 It seems that there is no way to configure any of these systems to create an authentication system like the one we need, going off on a tangent these firebase clones does not seem to be very flexible on its use cases, they may allow you to boot an MVP super quickly but you'll hit a lack of capabilities very fast and start cutting or modifiying your app behaviour to adapt to these systems, not sure how useful they can be for real proyects, maybe a GUILess open source firebase where you still have to code some parts of the system and use the preexisting services as the building blocks for your code would be a better solution[TODO_move_this_to_somewhere_else]
 
